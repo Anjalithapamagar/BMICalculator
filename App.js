@@ -1,13 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+//Import the 'BMIcalculator' component from './app/components/BMIcalculator'
+import BMIcalculator from './app/components/BMICalculator.js'
+export default class App extends React.Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                {/* Render the 'BMIcalculator' component */}
+                <BMIcalculator />
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
