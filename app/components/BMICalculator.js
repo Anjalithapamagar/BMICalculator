@@ -54,10 +54,10 @@ export default class BMIcalculator extends React.Component {
     toggleMeasurementSystem = () => {
         this.setState((prevState) => ({
             measurementSystem: prevState.measurementSystem === 'si' ? 'imperial' : 'si',
-            height: '', // When switching clear height input
-            weight: '', // When switching clear weight input
-            bmi: null, // When switching clear result of BMI
-            bmiCategories: '', //Clear BMI catergories when switching
+            height: '', // When switching, clear height input
+            weight: '', // When switching, clear weight input
+            bmi: null, // When switching, clear result of BMI
+            bmiCategories: '', // When switching, clear BMI categories
         }));
     };
 
@@ -74,19 +74,19 @@ export default class BMIcalculator extends React.Component {
                     <Text style={styles.toogleButtonText}>Switch to {measurementSystem === 'si' ? 'Imperial' : 'SI'} System</Text>
                 </TouchableOpacity>
 
-                <Text style={styles.label}>Your Height({measurementSystem === 'si' ? 'cm' : 'in'})</Text>
+                <Text style={styles.label}>Your Height({measurementSystem === 'si' ? 'centimeters' : 'inches'})</Text>
                 <TextInput
                     style={styles.textInput}
-                    placeholder="Input Your Height"
+                    placeholder={`Input Your Height in ${measurementSystem === 'si' ? 'centimeters' : 'inches'}`}
                     value={height}
                     keyboardType="numeric"
                     onChangeText={(text) => this.setState({ height: text })}
                 />
 
-                <Text style={styles.label}>Your Weight({measurementSystem === 'si' ? 'kg' : 'lb'})</Text>
+                <Text style={styles.label}>Your Weight({measurementSystem === 'si' ? 'kilograms' : 'pounds'})</Text>
                 <TextInput
                     style={styles.textInput}
-                    placeholder="Input Your Weight"
+                    placeholder={`Input Your Weight in ${measurementSystem === 'si' ? 'kilograms' : 'pounds'}`}
                     value={weight}
                     keyboardType="numeric"
                     onChangeText={(text) => this.setState({ weight: text })}
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
         height: 40,
         borderColor: 'black',
         borderWidth: 1,
-        color: '#6f48b3',
+        color: '#df5e8d',
         marginBottom: 16,
         paddingStart: 8,
     },
